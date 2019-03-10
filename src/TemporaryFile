@@ -1,0 +1,4 @@
+unsigned char DIO_ReadPort(unsigned char port_index,unsigned char pins_mask){
+	unsigned long port_full_index =0x40000000U | (port_index << 12 ) | 0x3FCU  ;
+	return (*((volatile unsigned long *)port_full_index))&pins_mask;
+}
