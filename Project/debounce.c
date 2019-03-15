@@ -17,9 +17,9 @@ if (DIO_ReadPort(0,0x1)   &&(debouncing (0,0x1,50)==false))  //PA0
 
 
 #include "stdbool.h"
-bool debouncing(unsigned int port_index,unsigned int pins_mask,unsigned long time) //takes pin state variable and time of debounce in ms
+bool debouncing(uint8 port_index,uint8 pins_mask,unsigned long time) //takes pin state variable and time of debounce in ms
 	
-{unsigned int last=DIO_ReadPort(port_index,pins_mask);
+{uint8 last=DIO_ReadPort(port_index,pins_mask);
 delay_msec(time);
 		
 		if (last==DIO_ReadPort(port_index,pins_mask))
