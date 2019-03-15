@@ -32,4 +32,20 @@ delay_msec(time);
 	
 }
 
+//another  method
+
+unsigned char debounce(uint8 port_index,uint8 pins_mask)
+{
+    static unsigned char state, cnt0, cnt1;
+    unsigned char delta;
+
+    delta = DIO_ReadPort(port_index,pins_mask) ^ state;
+    cnt1 = (cnt1 ^ cnt0) & (delta & DIO_ReadPort(port_index,pins_mask));
+    cnt0 = ~cnt0 & (delta & DIO_ReadPort(port_index,pins_mask));
+    state ^= (delta & ~(cnt0 | cnt1));
+
+    return state;
+}
+
+
 
