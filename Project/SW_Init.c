@@ -1,4 +1,4 @@
-void SW_Init(unsigned int pins_mask,unsigned int port_index)
+void SW_Init(uint8 pins_mask,unit8 port_index)
 {
   uint8 enable=1;
   switch (port_index)
