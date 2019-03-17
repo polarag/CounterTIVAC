@@ -32,5 +32,6 @@ void LCD_init(void);
 void LCD_Cmd(unsigned char command);
 void LCD_Data(unsigned char data);
 void LCD_print(int x);
+void Port_Init_PIN(uint8 port_index , uint8 Pin_index);
 
 #endif 
