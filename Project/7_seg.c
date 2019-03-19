@@ -1,4 +1,46 @@
-    
+  void print_3no(unsigned int no)
+
+{
+	DIO_WritePort(0 ,0X20 ,STD_LOW); //PA5 
+  DIO_WritePort(0 ,0X40 ,STD_LOW); //PA6
+  DIO_WritePort(1 ,0X80 ,STD_LOW); //PA7
+      
+ 
+      int unit=no%10;
+      int tenth=no/10;
+	 int hund=no/100;
+	DIO_WritePort(0 ,0X20 ,STD_LOW); //PA5 
+  DIO_WritePort(0 ,0X40 ,STD_HIGH); //PA6
+  DIO_WritePort(1 ,0X80 ,STD_HIGH); //PA7
+	
+     
+      print_no(unit);
+      delay_msec(10);
+	
+	DIO_WritePort(0 ,0X20 ,STD_HIGH); //PA5 
+  DIO_WritePort(0 ,0X40 ,STD_LOW); //PA6
+  DIO_WritePort(1 ,0X80 ,STD_HIGH); //PA7
+	
+      
+      print_no(tenth);
+      delay_msec(10);
+      
+      
+   DIO_WritePort(0 ,0X20 ,STD_HIGH); //PA5 
+  DIO_WritePort(0 ,0X40 ,STD_HIGH); //PA6
+  DIO_WritePort(1 ,0X80 ,STD_LOW); //PA7
+	
+      
+      print_no(hund);
+      delay_msec(10);     
+        
+        
+        
+
+
+  
+  
+  }  
     
     //print_no
     
